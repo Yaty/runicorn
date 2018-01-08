@@ -1,0 +1,32 @@
+<h1>Liste des licornes</h1>
+
+<%= link_to 'Ajouter une licorne', new_unicorn_path %> <br />
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Age</th>
+    <th>Sexe</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @unicorns.each do |unicorn| %>
+      <tr>
+        <td><%= unicorn.id %></td>
+        <td><%= unicorn.name %></td>
+        <td><%= unicorn.age %></td>
+        <td><%= unicorn.sex %></td>
+        <td>
+          <%= link_to 'Afficher', unicorn %>
+          <%= link_to 'Editer', edit_unicorn_path(unicorn) %>
+          <%= link_to 'Supprimer', unicorn, method: :delete, data: {
+              confirm: 'Etes-vous sûr ?'
+          } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

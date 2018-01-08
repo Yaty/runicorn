@@ -1,0 +1,20 @@
+<%= form_with(model: unicorn) do |form| %>
+    <div class="field">
+      <%= form.label :name, 'Nom' %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :age, 'Age' %>
+      <%= form.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sex, 'Sexe' %>
+      <%= form.text_field :sex %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Enregistrer' %>
+    </div>
+<% end %>
