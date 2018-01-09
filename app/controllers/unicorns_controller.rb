@@ -13,9 +13,9 @@ class UnicornsController < ApplicationController
 
   def create
     @unicorn = Unicorn.new(
-        params
-            .require(:unicorn)
-            .permit(:name, :age, :sex)
+      params
+        .require(:unicorn)
+        .permit(:name, :age, :sex)
     )
 
     if @unicorn.save
@@ -31,7 +31,7 @@ class UnicornsController < ApplicationController
 
   def update
     @unicorn = Unicorn.find(params[:id])
-    if @unicorn.update(params.require(:unicorn).permit(:number, :name, :level, :hp))
+    if @unicorn.update(params.require(:unicorn).permit(:name, :age, :sex))
       redirect_to(@unicorn)
     else
       render 'edit'

@@ -1,0 +1,2 @@
+class Poison < ApplicationRecord
+end
