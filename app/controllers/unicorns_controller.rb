@@ -43,7 +43,7 @@ class UnicornsController < ApplicationController
   def unicorn_attrs
     params
       .require(:unicorn)
-      .permit(:name, :age, :sex, :clan, :living_space)
+      .permit(:name, :age, :sex, :clan_id, :living_space_id, :poison_ids, :aptitude_ids)
   end
 
   def set_unicorn

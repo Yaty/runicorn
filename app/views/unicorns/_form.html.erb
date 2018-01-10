@@ -1,40 +1,10 @@
-<%= form_with model: unicorn do |form| %>
-    <div class="field">
-      <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :age, 'Age' %>
-      <%= form.number_field :age, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :sex, 'Sexe' %>
-      <%= form.select :sex, [['Mâle', false], ['Femelle', true]] %>
-    </div>
-
-    <div class="field">
-      <%= form.label :clan, 'Clan' %>
-      <%= form.select(:clan, Clan.all.collect {|a| [a.name, a.id]}) %>
-    </div>
-
-    <div class="field">
-      <%= form.label :poisons, 'Poisons' %>
-      <%= form.select :poisons, Poison.all.collect {|a| [a.name, a.id]}, {}, {:multiple => true} %>
-    </div>
-
-    <div class="field">
-      <%= form.label :aptitudes, 'Aptitudes' %>
-      <%= form.select :aptitudes, Aptitude.all.collect {|a| [a.name, a.id]}, {}, {:multiple => true} %>
-    </div>
-
-    <div class="field">
-      <%= form.label :living_space, 'Lieu de vie' %>
-      <%= form.select(:living_space, LivingSpace.all.collect {|a| [a.name, a.id]}) %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit 'Enregistrer' %>
-    </div>
+<%= simple_form_for unicorn do |form| %>
+    <%= form.input :name, label: 'Nom de la licorne', error: 'Champ obligatoire' %>
+    <%= form.input :age %>
+    <%= form.input :sex %>
+    <%= form.association :clan %>
+    <%= form.association :poisons %>
+    <%= form.association :aptitudes %>
+    <%= form.association :living_space %>
+    <%= form.button :submit %>
 <% end %>

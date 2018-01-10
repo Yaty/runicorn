@@ -43,7 +43,7 @@ class PoisonsController < ApplicationController
   def poison_attrs
     params
       .require(:poison)
-      .permit(:name, :power)
+      .permit(:name, :power, :duration)
   end
 
   def set_poison
