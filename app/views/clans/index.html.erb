@@ -1,0 +1,34 @@
+<h1>Liste des clans</h1>
+
+<%= link_to 'Ajouter un clan', clans_path %> <br />
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Lieux de vies</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @clans.each do |clan| %>
+      <tr>
+        <td><%= clan.id %></td>
+        <td><%= clan.name %></td>
+        <td>
+          <% render "living_spaces", { :c => clan } %>
+        </td>
+        <td>
+          <%= link_to 'Afficher', clan %>
+          <%= link_to 'Editer', edit_clan_path(clan) %>
+          <%= link_to 'Supprimer', clan, method: :delete, data: {
+              confirm: 'Etes-vous sûr ?'
+          } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Index', root_url %>

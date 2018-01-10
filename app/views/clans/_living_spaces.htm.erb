@@ -1,0 +1,16 @@
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @c.living_spaces.each do |living_space| %>
+      <tr>
+        <td><%= living_space.id %></td>
+        <td><%= living_space.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

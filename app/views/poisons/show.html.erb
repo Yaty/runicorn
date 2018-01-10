@@ -1,0 +1,21 @@
+<h1>Affichage d'un poison</h1>
+
+<p>
+  Id : <%= @poison.id %>
+</p>
+
+<p>
+  Nom : <%= @poison.name %>
+</p>
+
+<p>
+  Puissance : <%= @poison.power %>
+</p>
+
+<p>
+  Temps d'action : <%= @poison.duration %>
+</p>
+
+<p>
+  <%= link_to 'Retour à la liste des poisons', poisons_path %>
+</p>

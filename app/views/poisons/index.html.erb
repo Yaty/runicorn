@@ -1,0 +1,34 @@
+<h1>Liste des poisons</h1>
+
+<%= link_to 'Ajouter un poison', new_poison_path %> <br />
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Puissance</th>
+    <th>Temps d'action</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @poisons.each do |poison| %>
+      <tr>
+        <td><%= poison.id %></td>
+        <td><%= poison.name %></td>
+        <td><%= poison.power %></td>
+        <td><%= poison.duration %></td>
+        <td>
+          <%= link_to 'Afficher', poison %>
+          <%= link_to 'Editer', edit_poison_path(poison) %>
+          <%= link_to 'Supprimer', poison, method: :delete, data: {
+              confirm: 'Etes-vous sûr ?'
+          } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Index', root_url %>

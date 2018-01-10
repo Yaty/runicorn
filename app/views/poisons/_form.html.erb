@@ -1,0 +1,20 @@
+<%= form_with model: poison do |form| %>
+    <div class="field">
+      <%= form.label :name, 'Nom' %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :power, 'Puissance' %>
+      <%= form.number_field :power, step: :any%>
+    </div>
+
+    <div class="field">
+      <%= form.label :duration, 'Temps d\'action' %>
+      <%= form.number_field :duration %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Enregistrer' %>
+    </div>
+<% end %>

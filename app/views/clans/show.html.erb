@@ -1,0 +1,30 @@
+<h1>Affichage d'un clan</h1>
+
+<p>
+  Id : <%= @clan.id %>
+</p>
+
+<p>
+  Nom : <%= @clan.name %>
+</p>
+
+<p>
+  Lieux de vie :
+  <% render "living_spaces", { :c => @clan } %>
+</p>
+
+<p>
+  Longitude : <%= @living_space.longitude %>
+</p>
+
+<p>
+  Largeur : <%= @living_space.width %>
+</p>
+
+<p>
+  Hauteur : <%= @living_space.height %>
+</p>
+
+<p>
+  <%= link_to 'Retour à la liste des clans', clans_path %>
+</p>
