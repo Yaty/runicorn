@@ -1,17 +1,17 @@
 <%= form_with model: unicorn do |form| %>
     <div class="field">
       <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, :required => true  %>
     </div>
 
     <div class="field">
       <%= form.label :age, 'Age' %>
-      <%= form.number_field :age %>
+      <%= form.number_field :age, :required => true  %>
     </div>
 
     <div class="field">
       <%= form.label :sex, 'Sexe' %>
-      <%= form.check_box :sex %>
+      <%= form.check_box :sex, :required => true  %>
     </div>
 
     <div class="field">

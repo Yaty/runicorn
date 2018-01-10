@@ -10,19 +10,7 @@
 
 <p>
   Lieux de vie :
-  <% render "living_spaces", { :c => @clan } %>
-</p>
-
-<p>
-  Longitude : <%= @living_space.longitude %>
-</p>
-
-<p>
-  Largeur : <%= @living_space.width %>
-</p>
-
-<p>
-  Hauteur : <%= @living_space.height %>
+  <%= render "clans/living_spaces", c: @clan %>
 </p>
 
 <p>

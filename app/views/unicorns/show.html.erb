@@ -42,13 +42,13 @@
       </tr>
       </thead>
       <tbody>
-      <% @unicorn.poisons.each do |poison| %>
-          <tr>
-            <td><%= poison.id %></td>
-            <td><%= poison.name %></td>
-            <td><%= poison.power %></td>
-          </tr>
-      <% end %>
+        <% @unicorn.poisons.each do |poison| %>
+            <tr>
+              <td><%= poison.id %></td>
+              <td><%= poison.name %></td>
+              <td><%= poison.power %></td>
+            </tr>
+        <% end %>
       </tbody>
     </table>
 <% end %>

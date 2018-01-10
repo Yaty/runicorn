@@ -1,6 +1,6 @@
 <h1>Liste des clans</h1>
 
-<%= link_to 'Ajouter un clan', clans_path %> <br />
+<%= link_to 'Ajouter un clan', new_clan_url %> <br />
 
 <table>
   <thead>
@@ -17,7 +17,7 @@
         <td><%= clan.id %></td>
         <td><%= clan.name %></td>
         <td>
-          <% render "living_spaces", { :c => clan } %>
+          <%= render "clans/living_spaces", c: clan %>
         </td>
         <td>
           <%= link_to 'Afficher', clan %>

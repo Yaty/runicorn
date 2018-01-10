@@ -1,7 +1,7 @@
 <%= form_with model: clan do |form| %>
     <div class="field">
       <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, :required => true %>
     </div>
 
     <div class="field">
