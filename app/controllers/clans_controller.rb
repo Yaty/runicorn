@@ -1,11 +1,11 @@
 class ClansController < ApplicationController
+  before_action :set_clan, only: [:show, :edit, :update, :destroy]
+
   def index
     @clans = Clan.all
   end
 
-  def show
-    @clan = Clan.find(params[:id])
-  end
+  def show; end
 
   def new
     @clan = Clan.new
@@ -22,12 +22,9 @@ class ClansController < ApplicationController
     end
   end
 
-  def edit
-    @clan = Clan.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @clan = Clan.find(params[:id])
     if @clan.update_attributes clan_attrs
       redirect_to(@clan)
     else
@@ -37,7 +34,6 @@ class ClansController < ApplicationController
   end
 
   def destroy
-    @clan = Clan.find(params[:id])
     @clan.destroy
     redirect_to living_spaces_path
   end
@@ -48,5 +44,9 @@ class ClansController < ApplicationController
     params
         .require(:clan)
         .permit(:name, :living_spaces)
+  end
+
+  def set_clan
+    @clan = Clan.find(params[:id])
   end
 end

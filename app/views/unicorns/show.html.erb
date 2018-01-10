@@ -18,13 +18,13 @@
 
 <% if @unicorn.has_attribute?(:clan) %>
     <p>
-      Clan : <%= link_to @unicorn.clan.name, @unicorn.clan.path_to_asset %> <!-- TODO : check path -->
+      Clan : <%= link_to @unicorn.clan.name, @unicorn.clan.to_partial_path %> <!-- TODO : check path -->
     </p>
 <% end %>
 
 <% if @unicorn.has_attribute?(:living_space) %>
     <p>
-      Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space.path_to_asset %> <!-- TODO : check path -->
+      Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space.to_partial_path %> <!-- TODO : check path -->
     </p>
 <% end %>
 

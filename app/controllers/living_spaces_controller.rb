@@ -1,11 +1,11 @@
 class LivingSpacesController < ApplicationController
+  before_action :set_living_space, only: [:show, :edit, :update, :destroy]
+
   def index
     @living_spaces = LivingSpace.all
   end
 
-  def show
-    @living_space = LivingSpace.find(params[:id])
-  end
+  def show; end
 
   def new
     @living_space = LivingSpace.new
@@ -22,12 +22,9 @@ class LivingSpacesController < ApplicationController
     end
   end
 
-  def edit
-    @living_space = LivingSpace.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @living_space = LivingSpace.find(params[:id])
     if @living_space.update_attributes living_space_attrs
       redirect_to(@living_space)
     else
@@ -37,7 +34,6 @@ class LivingSpacesController < ApplicationController
   end
 
   def destroy
-    @living_space = LivingSpace.find(params[:id])
     @living_space.destroy
     redirect_to living_spaces_path
   end
@@ -48,5 +44,9 @@ class LivingSpacesController < ApplicationController
     params
         .require(:living_space)
         .permit(:name, :latitude, :longitude, :width, :height)
+  end
+
+  def set_living_space
+    @living_space = LivingSpace.find(params[:id])
   end
 end

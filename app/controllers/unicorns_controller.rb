@@ -1,11 +1,11 @@
 class UnicornsController < ApplicationController
+  before_action :set_unicorn, only: [:show, :edit, :update, :destroy]
+
   def index
     @unicorns = Unicorn.all
   end
 
-  def show
-    @unicorn = Unicorn.find(params[:id])
-  end
+  def show; end
 
   def new
     @unicorn = Unicorn.new
@@ -22,12 +22,9 @@ class UnicornsController < ApplicationController
     end
   end
 
-  def edit
-    @unicorn = Unicorn.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @unicorn = Unicorn.find(params[:id])
     if @unicorn.update_attributes unicorn_attrs
       redirect_to(@unicorn)
     else
@@ -37,7 +34,6 @@ class UnicornsController < ApplicationController
   end
 
   def destroy
-    @unicorn = Unicorn.find(params[:id])
     @unicorn.destroy
     redirect_to unicorns_path
   end
@@ -48,5 +44,9 @@ class UnicornsController < ApplicationController
     params
       .require(:unicorn)
       .permit(:name, :age, :sex, :clan, :living_space)
+  end
+
+  def set_unicorn
+    @unicorn = Unicorn.find(params[:id])
   end
 end

@@ -1,11 +1,11 @@
 class PoisonsController < ApplicationController
+  before_action :set_poison, only: [:show, :edit, :update, :destroy]
+
   def index
     @poisons = Poison.all
   end
 
-  def show
-    @poison = Poison.find(params[:id])
-  end
+  def show; end
 
   def new
     @poison = Poison.new
@@ -22,12 +22,9 @@ class PoisonsController < ApplicationController
     end
   end
 
-  def edit
-    @poison = Poison.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @poison = Poison.find(params[:id])
     if @poison.update_attributes poison_attrs
       redirect_to(@poison)
     else
@@ -37,7 +34,6 @@ class PoisonsController < ApplicationController
   end
 
   def destroy
-    @poison = Poison.find(params[:id])
     @poison.destroy
     redirect_to poisons_path
   end
@@ -48,5 +44,9 @@ class PoisonsController < ApplicationController
     params
       .require(:poison)
       .permit(:name, :power)
+  end
+
+  def set_poison
+    @poison = Poison.find(params[:id])
   end
 end
