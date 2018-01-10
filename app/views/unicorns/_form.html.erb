@@ -14,6 +14,26 @@
       <%= form.check_box :sex %>
     </div>
 
+    <div class="field">
+      <%= form.label :clan, 'Clan' %>
+      <%= form.select(:clan, Clan.all.collect {|a| [a.name, a.id]}) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :poisons, 'Poisons' %>
+      <%= form.select :poisons, Poison.all.collect {|a| [a.name, a.id]}, {}, {:multiple => true} %>
+    </div>
+
+    <div class="field">
+      <%= form.label :aptitudes, 'Aptitudes' %>
+      <%= form.select :aptitudes, Aptitude.all.collect {|a| [a.name, a.id]}, {}, {:multiple => true} %>
+    </div>
+
+    <div class="field">
+      <%= form.label :living_space, 'Lieu de vie' %>
+      <%= form.select(:living_space, LivingSpace.all.collect {|a| [a.name, a.id]}) %>
+    </div>
+
     <div class="actions">
       <%= form.submit 'Enregistrer' %>
     </div>

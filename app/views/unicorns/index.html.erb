@@ -18,7 +18,7 @@
         <td><%= unicorn.id %></td>
         <td><%= unicorn.name %></td>
         <td><%= unicorn.age %></td>
-        <td><%= unicorn.sex %></td>
+        <td><%= unicorn.sex ? 'Femelle' : 'Mâle' %></td>
         <td>
           <%= link_to 'Afficher', unicorn %>
           <%= link_to 'Editer', edit_unicorn_path(unicorn) %>
