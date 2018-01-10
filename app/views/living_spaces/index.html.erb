@@ -1,0 +1,38 @@
+<h1>Liste des lieux de vie</h1>
+
+<%= link_to 'Ajouter un lieu de vie', new_living_space_url %> <br />
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Largeur</th>
+    <th>Hauteur</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @living_spaces.each do |living_space| %>
+      <tr>
+        <td><%= living_space.id %></td>
+        <td><%= living_space.name %></td>
+        <td><%= living_space.latitude %></td>
+        <td><%= living_space.longitude %></td>
+        <td><%= living_space.width %></td>
+        <td><%= living_space.height %></td>
+        <td>
+          <%= link_to 'Afficher', living_space %>
+          <%= link_to 'Editer', edit_living_space_path(living_space) %>
+          <%= link_to 'Supprimer', living_space, method: :delete, data: {
+              confirm: 'Etes-vous sûr ?'
+          } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Index', root_url %>
