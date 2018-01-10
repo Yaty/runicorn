@@ -12,15 +12,12 @@ class UnicornsController < ApplicationController
   end
 
   def create
-    @unicorn = Unicorn.new(
-      params
-        .require(:unicorn)
-        .permit(:name, :age, :sex)
-    )
+    @unicorn = Unicorn.new(unicorn_attrs)
 
     if @unicorn.save
       redirect_to(@unicorn)
     else
+      p @unicorn.errors.full_messages
       render 'new'
     end
   end
@@ -31,9 +28,10 @@ class UnicornsController < ApplicationController
 
   def update
     @unicorn = Unicorn.find(params[:id])
-    if @unicorn.update(params.require(:unicorn).permit(:name, :age, :sex))
+    if @unicorn.update_attributes unicorn_attrs
       redirect_to(@unicorn)
     else
+      p @unicorn.errors.full_messages
       render 'edit'
     end
   end
@@ -42,5 +40,13 @@ class UnicornsController < ApplicationController
     @unicorn = Unicorn.find(params[:id])
     @unicorn.destroy
     redirect_to unicorns_path
+  end
+
+  private
+
+  def unicorn_attrs
+    params
+      .require(:unicorn)
+      .permit(:name, :age, :sex, :clan, :living_space)
   end
 end
