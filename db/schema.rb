@@ -10,20 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110175459) do
+ActiveRecord::Schema.define(version: 20180110185841) do
 
   create_table "aptitudes", force: :cascade do |t|
     t.integer "type"
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unicorn_id"
+    t.index ["unicorn_id"], name: "index_aptitudes_on_unicorn_id"
   end
 
-# Could not dump table "clans" because of following StandardError
-#   Unknown type 'has_many' for column 'unicorns'
+  create_table "clans", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-# Could not dump table "living_spaces" because of following StandardError
-#   Unknown type 'has_many' for column 'unicorns'
+  create_table "living_spaces", force: :cascade do |t|
+    t.string "name"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "clan_id"
+    t.index ["clan_id"], name: "index_living_spaces_on_clan_id"
+  end
+
+  create_table "poison_unicorns", force: :cascade do |t|
+    t.integer "unicorn_id"
+    t.integer "poison_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poison_id"], name: "index_poison_unicorns_on_poison_id"
+    t.index ["unicorn_id"], name: "index_poison_unicorns_on_unicorn_id"
+  end
 
   create_table "poisons", force: :cascade do |t|
     t.string "name"
@@ -33,7 +56,17 @@ ActiveRecord::Schema.define(version: 20180110175459) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "unicorns" because of following StandardError
-#   Unknown type 'has_one' for column 'living_space'
+  create_table "unicorns", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.boolean "sex"
+    t.integer "health"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "clan_id"
+    t.integer "living_space_id"
+    t.index ["clan_id"], name: "index_unicorns_on_clan_id"
+    t.index ["living_space_id"], name: "index_unicorns_on_living_space_id"
+  end
 
 end

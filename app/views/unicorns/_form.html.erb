@@ -11,7 +11,7 @@
 
     <div class="field">
       <%= form.label :sex, 'Sexe' %>
-      <%= form.check_box :sex, :required => true  %>
+      <%= form.select :sex, [['Mâle', false], ['Femelle', true]] %>
     </div>
 
     <div class="field">
