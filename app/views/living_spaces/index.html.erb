@@ -11,6 +11,7 @@
     <th>Longitude</th>
     <th>Largeur</th>
     <th>Hauteur</th>
+    <th>Clan</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -24,6 +25,13 @@
         <td><%= living_space.width %></td>
         <td><%= living_space.height %></td>
         <td>
+          <% if living_space.attributes.key?('clan') %>
+              <%= link_to living_space.clan.name, @living_space.clan %>
+          <% else %>
+             Aucun
+          <% end %>
+        </td>
+        <td>
           <%= link_to 'Afficher', living_space %>
           <%= link_to 'Editer', edit_living_space_path(living_space) %>
           <%= link_to 'Supprimer', living_space, method: :delete, data: {
@@ -35,4 +43,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Index', root_url %>
+<%= link_to 'Index', root_url %><br>
+<%= link_to 'Retour', :back %>

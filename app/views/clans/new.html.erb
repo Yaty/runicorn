@@ -1,3 +1,11 @@
 <h1>Ajout un clan</h1>
 
-<%= render 'form', clan: @clan %>
+<% if Unicorn.count > 0 %>
+    <%= render 'form', clan: @clan %>
+<% else %>
+    Veuillez d'abord ajouter une licorne.<br>
+    Un clan devra forcément avoir une licorne pour chef.<br>
+    <%= link_to 'Ajouter une licorne', new_unicorn_url %><br>
+    <%= link_to 'Index', root_url %><br>
+    <%= link_to 'Retour', :back %>
+<% end %>

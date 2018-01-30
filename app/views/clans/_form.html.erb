@@ -1,4 +1,9 @@
-<%= simple_form_for clan do |form| %>
+<%= stylesheet_link_tag "style" %>
+
+<%= simple_form_for @clan do |form| %>
     <%= form.input :name, label: 'Nom du clan', error: 'Champ obligatoire' %>
+    <%= form.association :unicorn, label: 'Leader', error: 'Champ obligatoire' %>
+    <%= form.association :living_spaces, label: 'Territoires' %>
     <%= form.button :submit %>
+    <%= link_to "Annuler", :back %>
 <% end %>

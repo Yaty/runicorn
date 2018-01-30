@@ -43,7 +43,7 @@ class ClansController < ApplicationController
   def clan_attrs
     params
         .require(:clan)
-        .permit(:name, :living_spaces)
+        .permit(:name, :unicorn_id)
   end
 
   def set_clan

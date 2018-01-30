@@ -1,6 +1,9 @@
-<%= simple_form_for poison do |form| %>
+<%= stylesheet_link_tag "style" %>
+
+<%= simple_form_for @poison do |form| %>
     <%= form.input :name, label: 'Nom du poison', error: 'Champ obligatoire' %>
     <%= form.input :power, label: 'Puissance', error: 'Champ obligatoire' %>
     <%= form.input :duration, label: 'Temps d\'action', error: 'Champ obligatoire' %>
     <%= form.button :submit %>
+    <%= link_to "Annuler", :back %>
 <% end %>

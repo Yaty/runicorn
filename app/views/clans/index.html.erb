@@ -7,7 +7,7 @@
   <tr>
     <th>#</th>
     <th>Nom</th>
-    <th>Lieux de vies</th>
+    <th>Territoires</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -17,7 +17,7 @@
         <td><%= clan.id %></td>
         <td><%= clan.name %></td>
         <td>
-          <%= render "clans/living_spaces", c: clan %>
+          <%= render "living_spaces", c: clan %>
         </td>
         <td>
           <%= link_to 'Afficher', clan %>
@@ -31,4 +31,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Index', root_url %>
+<%= link_to 'Index', root_url %><br>
+<%= link_to 'Retour', :back %>

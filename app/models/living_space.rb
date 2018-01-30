@@ -1,4 +1,4 @@
 class LivingSpace < ApplicationRecord
   has_many :unicorns
-  has_one :clan
+  belongs_to :clan, optional: true
 end

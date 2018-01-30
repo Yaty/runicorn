@@ -43,7 +43,7 @@ class LivingSpacesController < ApplicationController
   def living_space_attrs
     params
         .require(:living_space)
-        .permit(:name, :latitude, :longitude, :width, :height)
+        .permit(:name, :latitude, :longitude, :width, :height, :clan_id)
   end
 
   def set_living_space

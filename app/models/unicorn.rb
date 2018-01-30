@@ -6,4 +6,5 @@ class Unicorn < ApplicationRecord
   has_many :poisons, :through => :poison_unicorns
 
   has_many :aptitudes
+  accepts_nested_attributes_for :aptitudes
 end

@@ -35,7 +35,7 @@ class AptitudesController < ApplicationController
 
   def destroy
     @aptitude.destroy
-    redirect_to aptitudes_path
+    redirect_to root_path
   end
 
   private
@@ -43,7 +43,7 @@ class AptitudesController < ApplicationController
   def aptitude_attrs
     params
         .require(:aptitude)
-        .permit(:name, :level)
+        .permit(:name, :level, :unicorn_id)
   end
 
   def set_aptitude

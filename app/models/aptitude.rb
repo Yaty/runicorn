@@ -1,3 +1,3 @@
 class Aptitude < ApplicationRecord
-  has_one :unicorn
+  belongs_to :unicorn
 end

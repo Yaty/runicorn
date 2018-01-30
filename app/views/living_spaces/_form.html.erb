@@ -1,8 +1,16 @@
-<%= simple_form_for living_space do |form| %>
+<%= stylesheet_link_tag "style" %>
+
+<%= simple_form_for @living_space do |form| %>
     <%= form.input :name, label: 'Nom du lieu de vie', error: 'Champ obligatoire' %>
     <%= form.input :latitude, label: 'Latitude', error: 'Champ obligatoire' %>
     <%= form.input :longitude, label: 'Longitude', error: 'Champ obligatoire' %>
     <%= form.input :width, label: 'Largeur', error: 'Champ obligatoire' %>
     <%= form.input :height, label: 'Hauteur', error: 'Champ obligatoire' %>
+    <% if Clan.count > 0 %>
+        <%= form.association :clan, label: 'Clan' %>
+    <% else %>
+        Pas de clan disponible. <%= link_to "Créer un clan.", new_clan_url %><br>
+    <% end %>
     <%= form.button :submit %>
+    <%= link_to "Annuler", :back %>
 <% end %>

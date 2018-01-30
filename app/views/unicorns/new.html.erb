@@ -1,3 +1,11 @@
-<h1>Ajout une licorne</h1>
+<h1>Ajouter une licorne</h1>
 
-<%= render 'form', unicorn: @unicorn %>
+<% if LivingSpace.count > 0 %>
+    <%= render 'form', unicorn: @unicorn %>
+<% else %>
+    Veuillez d'abord ajouter un lieu de vie.<br>
+    Une licorne en a forcément un.<br>
+    <%= link_to 'Ajouter un lieu de vie', new_living_space_url %><br>
+    <%= link_to 'Index', root_url %><br>
+    <%= link_to 'Retour', :back %>
+<% end %>
