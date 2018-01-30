@@ -1,20 +1,6 @@
-<%= form_with model: poison do |form| %>
-    <div class="field">
-      <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :power, 'Puissance' %>
-      <%= form.number_field :power, step: :any, :required => true %>
-    </div>
-
-    <div class="field">
-      <%= form.label :duration, 'Temps d\'action' %>
-      <%= form.number_field :duration, :required => true  %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit 'Enregistrer' %>
-    </div>
+<%= simple_form_for poison do |form| %>
+    <%= form.input :name, label: 'Nom du poison', error: 'Champ obligatoire' %>
+    <%= form.input :power, label: 'Puissance', error: 'Champ obligatoire' %>
+    <%= form.input :duration, label: 'Temps d\'action', error: 'Champ obligatoire' %>
+    <%= form.button :submit %>
 <% end %>

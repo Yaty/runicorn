@@ -1,10 +1,11 @@
 <%= simple_form_for unicorn do |form| %>
     <%= form.input :name, label: 'Nom de la licorne', error: 'Champ obligatoire' %>
-    <%= form.input :age %>
-    <%= form.input :sex %>
-    <%= form.association :clan %>
-    <%= form.association :poisons %>
-    <%= form.association :aptitudes %>
-    <%= form.association :living_space %>
+    <%= form.input :age, label: 'Age', error: 'Champ obligatoire' %>
+    <%= form.input :sex, label: 'Sexe', error: 'Champ obligatoire' %>
+    <%= form.association :aptitudes, label: 'Aptitudes', error: 'Champ obligatoire' %>
+    <%= form.association :clan, label: 'Clan' %>
+    <%= form.association :poisons, label: 'Poisons' %>
+    <%= form.association :aptitudes, label: 'Aptitudes' %>
+    <%= form.association :living_space, label: 'Lieu de vie' %>
     <%= form.button :submit %>
 <% end %>

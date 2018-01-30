@@ -1,30 +1,8 @@
-<%= form_with model: living_space do |form| %>
-    <div class="field">
-      <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :latitude, 'Latitude' %>
-      <%= form.number_field :latitude, step: :any, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :longitude, 'Longitude' %>
-      <%= form.number_field :longitude, step: :any, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :width, 'Largeur' %>
-      <%= form.number_field :width, :required => true  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :height, 'Hauteur' %>
-      <%= form.number_field :height, :required => true  %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit 'Enregistrer' %>
-    </div>
+<%= simple_form_for living_space do |form| %>
+    <%= form.input :name, label: 'Nom du lieu de vie', error: 'Champ obligatoire' %>
+    <%= form.input :latitude, label: 'Latitude', error: 'Champ obligatoire' %>
+    <%= form.input :longitude, label: 'Longitude', error: 'Champ obligatoire' %>
+    <%= form.input :width, label: 'Largeur', error: 'Champ obligatoire' %>
+    <%= form.input :height, label: 'Hauteur', error: 'Champ obligatoire' %>
+    <%= form.button :submit %>
 <% end %>

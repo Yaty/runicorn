@@ -9,6 +9,7 @@
     <th>Nom</th>
     <th>Age</th>
     <th>Sexe</th>
+    <th>Aptitudes</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td><%= unicorn.name %></td>
         <td><%= unicorn.age %></td>
         <td><%= unicorn.sex %></td>
+        <td><%= unicorn.aptitudes.map {|aptitude| aptitude.name + ','}%></td>
         <td>
           <%= link_to 'Afficher', unicorn %>
           <%= link_to 'Editer', edit_unicorn_path(unicorn) %>

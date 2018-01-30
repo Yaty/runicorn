@@ -35,7 +35,7 @@ class ClansController < ApplicationController
 
   def destroy
     @clan.destroy
-    redirect_to living_spaces_path
+    redirect_to clans_path
   end
 
   private
