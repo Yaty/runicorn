@@ -1,5 +1,4 @@
 <%= simple_form_for clan do |form| %>
     <%= form.input :name, label: 'Nom du clan', error: 'Champ obligatoire' %>
-    <%= form.association :living_space, label: 'Lieux de vie' %>
     <%= form.button :submit %>
 <% end %>
