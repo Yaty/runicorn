@@ -22,11 +22,9 @@
     </p>
 <% end %>
 
-<% if @unicorn.has_attribute?(:living_space) %>
-    <p>
-      Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space.to_partial_path %> <!-- TODO : check path -->
-    </p>
-<% end %>
+<p>
+  Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space %> <!-- TODO : check path -->
+</p>
 
 <% if @unicorn.has_attribute?(:poisons) %>
     <p>

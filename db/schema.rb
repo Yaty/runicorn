@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20180110185841) do
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unicorn_id"
+    t.index ["unicorn_id"], name: "index_aptitudes_on_unicorn_id"
   end
 
   create_table "clans", force: :cascade do |t|
@@ -63,8 +65,6 @@ ActiveRecord::Schema.define(version: 20180110185841) do
     t.datetime "updated_at", null: false
     t.integer "clan_id"
     t.integer "living_space_id"
-    t.integer "aptitude_id"
-    t.index ["aptitude_id"], name: "index_unicorns_on_aptitude_id"
     t.index ["clan_id"], name: "index_unicorns_on_clan_id"
     t.index ["living_space_id"], name: "index_unicorns_on_living_space_id"
   end

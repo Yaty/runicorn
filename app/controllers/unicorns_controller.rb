@@ -5,7 +5,9 @@ class UnicornsController < ApplicationController
     @unicorns = Unicorn.all
   end
 
-  def show; end
+  def show
+    @unicorn.aptitudes = Aptitude.where({ unicorn_id: @unicorn.id })
+  end
 
   def new
     @unicorn = Unicorn.new
