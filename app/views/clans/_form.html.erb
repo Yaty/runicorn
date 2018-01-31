@@ -1,15 +1,9 @@
-<%= form_with model: clan do |form| %>
-    <div class="field">
-      <%= form.label :name, 'Nom' %>
-      <%= form.text_field :name, :required => true %>
-    </div>
+<%= stylesheet_link_tag "style" %>
 
-    <div class="field">
-      <%= form.label :living_spaces, 'Lieux de vie' %>
-      <%= form.select(:living_spaces, LivingSpace.all.collect {|a| [a.name, a.id]}, {}, {:multiple => true}) %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit 'Enregistrer' %>
-    </div>
+<%= simple_form_for @clan do |form| %>
+    <%= form.input :name, label: 'Nom du clan', error: 'Champ obligatoire' %>
+    <%= form.association :unicorn, label: 'Leader', error: 'Champ obligatoire' %>
+    <%= form.association :living_spaces, label: 'Territoires' %>
+    <%= form.button :submit %>
+    <%= link_to "Annuler", :back %>
 <% end %>

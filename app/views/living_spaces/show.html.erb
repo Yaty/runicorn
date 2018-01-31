@@ -25,5 +25,15 @@
 </p>
 
 <p>
-  <%= link_to 'Retour à la liste des lieux de vie', living_spaces_path %>
+  Clan :
+  <% if @living_space.attributes.key?('clan') %>
+      <%= link_to @living_space.clan.name, @living_space.clan %>
+  <% else %>
+      aucun.
+  <% end %>
+</p>
+
+<p>
+  <%= link_to 'Index', root_url %>
+  <%= link_to 'Retour', :back %>
 </p>

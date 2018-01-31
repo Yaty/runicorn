@@ -1,4 +1,6 @@
-<% if c.has_attribute?(:living_spaces) %>
+<%= c.living_spaces.inspect %>
+
+<% if c.living_spaces.count > 0 %>
   <table>
     <thead>
     <tr>
@@ -15,4 +17,6 @@
       <% end %>
     </tbody>
   </table>
+<% else %>
+  Aucun.
 <% end %>

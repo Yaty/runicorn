@@ -9,10 +9,11 @@
 </p>
 
 <p>
-  Lieux de vie :
-  <%= render "clans/living_spaces", c: @clan %> <!-- not working -->
+  Territoires :
+  <%= render "living_spaces", c: @clan %>
 </p>
 
 <p>
-  <%= link_to 'Retour à la liste des clans', clans_path %>
+  <%= link_to 'Index', root_url %>
+  <%= link_to 'Retour', :back %>
 </p>

@@ -9,6 +9,7 @@ class UnicornsController < ApplicationController
 
   def new
     @unicorn = Unicorn.new
+    @unicorn.aptitudes.build
   end
 
   def create
@@ -43,7 +44,10 @@ class UnicornsController < ApplicationController
   def unicorn_attrs
     params
       .require(:unicorn)
-      .permit(:name, :age, :sex, :clan_id, :living_space_id, :poison_ids, :aptitude_ids)
+      .permit(
+        :name, :age, :sex, :clan_id, :health, :living_space_id,
+        aptitudes_attributes: [:name, :level], poison_ids: [] # needed for nested model with simple form
+      )
   end
 
   def set_unicorn

@@ -1,10 +1,33 @@
-<%= simple_form_for unicorn do |form| %>
+<%= stylesheet_link_tag "style" %>
+
+<%= simple_form_for @unicorn do |form| %>
     <%= form.input :name, label: 'Nom de la licorne', error: 'Champ obligatoire' %>
-    <%= form.input :age %>
-    <%= form.input :sex %>
-    <%= form.association :clan %>
-    <%= form.association :poisons %>
-    <%= form.association :aptitudes %>
-    <%= form.association :living_space %>
+    <%= form.input :age, label: 'Age', error: 'Champ obligatoire' %>
+    <%= form.input :sex, label: 'Sexe', error: 'Champ obligatoire' %>
+    <%= form.input :health, label: 'Points de vie', error: 'Champ obligatoire' %>
+
+    <% if Aptitude.count > 0 %>
+        <%= form.association :aptitudes, label: 'Aptitudes' %>
+    <% else %>
+        <%= form.simple_fields_for :aptitudes do |p| %>
+            <%= p.input :name, label: 'Nom de l\'aptitude' %>
+            <%= p.input :level, label: 'Niveau de l\'aptitude' %>
+        <% end %>
+    <% end %>
+
+    <% if Clan.count > 0 %>
+        <%= form.association :clan, label: 'Clan' %>
+    <% else %>
+        Pas de clan disponible. <%= link_to "Créer un clan.", new_clan_url %>
+    <% end %>
+
+    <% if Poison.count > 0 %>
+        <%= form.association :poisons, label: 'Poisons' %>
+    <% else %>
+        Pas de poisons disponibles. <%= link_to "Créer un poison.", new_poison_url %>
+    <% end %>
+
+    <%= form.association :living_space, label: 'Lieu de vie' %>
     <%= form.button :submit %>
+    <%= link_to "Annuler", :back %>
 <% end %>

@@ -35,7 +35,7 @@ class ClansController < ApplicationController
 
   def destroy
     @clan.destroy
-    redirect_to living_spaces_path
+    redirect_to clans_path
   end
 
   private
@@ -43,7 +43,7 @@ class ClansController < ApplicationController
   def clan_attrs
     params
         .require(:clan)
-        .permit(:name, :living_spaces)
+        .permit(:name, :unicorn_id)
   end
 
   def set_clan

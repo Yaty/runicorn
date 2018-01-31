@@ -10,24 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110185841) do
+ActiveRecord::Schema.define(version: 1) do
 
   create_table "aptitudes", force: :cascade do |t|
-    t.integer "type"
+    t.integer "unicorn_id"
+    t.string "name"
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "unicorn_id"
     t.index ["unicorn_id"], name: "index_aptitudes_on_unicorn_id"
   end
 
   create_table "clans", force: :cascade do |t|
     t.string "name"
+    t.integer "unicorn_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["unicorn_id"], name: "index_clans_on_unicorn_id"
   end
 
   create_table "living_spaces", force: :cascade do |t|
+    t.integer "clan_id"
     t.string "name"
     t.float "latitude"
     t.float "longitude"
@@ -35,7 +38,6 @@ ActiveRecord::Schema.define(version: 20180110185841) do
     t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "clan_id"
     t.index ["clan_id"], name: "index_living_spaces_on_clan_id"
   end
 
@@ -57,14 +59,14 @@ ActiveRecord::Schema.define(version: 20180110185841) do
   end
 
   create_table "unicorns", force: :cascade do |t|
+    t.integer "clan_id"
+    t.integer "living_space_id"
     t.string "name"
     t.integer "age"
     t.boolean "sex"
     t.integer "health"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "clan_id"
-    t.integer "living_space_id"
     t.index ["clan_id"], name: "index_unicorns_on_clan_id"
     t.index ["living_space_id"], name: "index_unicorns_on_living_space_id"
   end

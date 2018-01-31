@@ -16,21 +16,26 @@
   Sexe : <%= @unicorn.sex ? 'Femelle' : 'Mâle' %>
 </p>
 
-<% if @unicorn.has_attribute?(:clan) %>
-    <p>
-      Clan : <%= link_to @unicorn.clan.name, @unicorn.clan.to_partial_path %> <!-- TODO : check path -->
-    </p>
-<% end %>
+<p>
+  Points de vie : <%= @unicorn.health %>
+</p>
 
-<% if @unicorn.has_attribute?(:living_space) %>
-    <p>
-      Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space.to_partial_path %> <!-- TODO : check path -->
-    </p>
-<% end %>
+<p>
+  Clan :
+  <% if @unicorn.clan %>
+      <%= link_to @unicorn.clan.name, @unicorn.clan %>
+  <% else %>
+      Aucun
+  <% end %>
+</p>
 
-<% if @unicorn.has_attribute?(:poisons) %>
-    <p>
-      Poisons
+<p>
+  Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space %>
+</p>
+
+<p>
+  Poisons :
+  <% if @unicorn.poisons.count > 0 %>
     </p>
 
     <table>
@@ -51,11 +56,15 @@
         <% end %>
       </tbody>
     </table>
-<% end %>
 
-<% if @unicorn.has_attribute?(:aptitudes) %>
-    <p>
-      Aptitudes
+  <% else %>
+    Aucun.
+    </p>
+  <% end %>
+
+<p>
+  Aptitudes :
+  <% if @unicorn.aptitudes.count > 0 %>
     </p>
 
     <table>
@@ -76,8 +85,12 @@
       <% end %>
       </tbody>
     </table>
-<% end %>
+  <% else %>
+    Aucune.
+    </p>
+  <% end %>
 
 <p>
-  <%= link_to 'Retour à la liste des licornes', unicorns_path %>
+  <%= link_to 'Index', root_url %>
+  <%= link_to 'Retour', :back %>
 </p>
