@@ -1,0 +1,17 @@
+<center><h1>Combat de licornes !</h1></center>
+
+<% if Fight.count > 0 %>
+  <table border="1">
+      <% @fights.each do |fight| %>
+          <tr>
+            <td><%= fight.name %></td>
+            <td><%= fight.firstUnicorn_id %></td>
+            <td><%= fight.secondUnicorn_id %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <p>Aucun combat n'a été fait !</p>
+<% end %>
+
+<%= link_to 'Créer un combat !', new_fight_url %>

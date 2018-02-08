@@ -1,0 +1,22 @@
+<h1>Affichage d'un combat</h1>
+
+<p>
+  Id : <%= @fight.id %>
+</p>
+
+<p>
+  Nom : <%= @fight.name %>
+</p>
+
+<p>
+  Première licorne : <%= @fight.firstUnicorn_id %>
+</p>
+
+<p>
+  Deuxième licorne : <%= @fight.secondUnicorn_id %>
+</p>
+
+<p>
+  <%= link_to 'Index', root_url %>
+  <%= link_to 'Retour', :back %>
+</p>
