@@ -1,22 +1,20 @@
-<h1>Affichage d'un combat</h1>
+<center><h1>Combat opposant <%= @fight.firstUnicorn.name %> à <%= @fight.secondUnicorn.name %></h1></center>
 
-<p>
-  Id : <%= @fight.id %>
-</p>
+<center><table border="1", cellpadding=250", >
+  <tr>
+    <td>
+      <center><b><%= @fight.firstUnicorn.name %></b></center><br><br>
+      <h2>Poison: <%= @fight.firstUnicorn.poisons.name %></h2>
+    </td>
+    <td>
+      <center><b><%= @fight.secondUnicorn.name %></b></center><br><br>
+      <h2>Poison: <%= @fight.secondUnicorn.poisons.name %></h2>
+    </td>
+  </tr>
+</table></center>
 
-<p>
-  Nom : <%= @fight.name %>
-</p>
-
-<p>
-  Première licorne : <%= @fight.firstUnicorn_id %>
-</p>
-
-<p>
-  Deuxième licorne : <%= @fight.secondUnicorn_id %>
-</p>
-
-<p>
+<center><p>
   <%= link_to 'Index', root_url %>
   <%= link_to 'Retour', :back %>
-</p>
+  <%= link_to 'Combats', :fights %>
+</p></center>
