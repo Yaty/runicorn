@@ -33,6 +33,7 @@
   </tr>
   <% while @firstUnicornLife >= 1 && @secondUnicornLife >= 1 %>
     <% @attack = rand(2) %>
+    <% @critical = rand(4) %>
     <tr>
       <td>
         <% if @player == 0 %>
@@ -40,12 +41,19 @@
                 <p><%= @fight.firstUnicorn.name %> loupe son attaque :(</p>
             <% else %>
               <p><%= @fight.firstUnicorn.name %> reussi son attaque !</p>
+              <% if @critical == 2 %>
+                <p>Coup critique!</p>
+              <% end %>
             <% end %>
         <% else %>
           <% if @attack == 0 %>
                 <p>Aucun dégat!</p>
           <% else %>
-                <p>coup: -<%= @firstUnicornPoison %></p>
+                <% if @critical == 2 %>
+                    <p>coup: -<%= @firstUnicornPoison + 10%></p>
+                <% else %>
+                    <p>coup: -<%= @firstUnicornPoison %></p>
+                <% end %>
                 <p>Points de vie: <%= @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %></p>
           <% end %>
         <% end %>
@@ -56,12 +64,19 @@
                 <p><%= @fight.secondUnicorn.name %> loupe son attaque :(</p>
             <% else %>
                 <p><%= @fight.secondUnicorn.name %> lance son attaque !</p>
-            <% end %>
+                <% if @critical == 2 %>
+                    <p>Coup critique!</p>
+                <% end %>
+      <% end %>
       <% else %>
             <% if @attack == 0 %>
               <p>Aucun dégat!</p>
             <% else %>
-                <p>coup: -<%= @secondUnicornPoison %></p>
+                <% if @critical == 2 %>
+                    <p>coup: -<%= @secondUnicornPoison + 10%></p>
+                <% else %>
+                    <p>coup: -<%= @secondUnicornPoison %></p>
+                <% end %>
                 <p>Points de vie: <%= @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %></p>
             <% end %>
         <% end %>
