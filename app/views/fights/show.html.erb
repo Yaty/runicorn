@@ -32,7 +32,7 @@
     </td>
   </tr>
   <% while @firstUnicornLife >= 1 && @secondUnicornLife >= 1 %>
-    <% @attack = rand(2) %>
+    <% @attack = rand(4) %>
     <% @critical = rand(4) %>
     <tr>
       <td>
@@ -54,7 +54,14 @@
                 <% else %>
                     <p>coup: -<%= @firstUnicornPoison %></p>
                 <% end %>
-                <p>Points de vie: <%= @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %></p>
+                <p>Points de vie:
+                  <% @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %>
+                  <% if @firstUnicornLife < 0 %>
+                    <%= @firstUnicornLife = 0 %>
+                  <% else %>
+                    <%= @firstUnicornLife %>
+                  <% end %>
+                </p>
           <% end %>
         <% end %>
       </td>
@@ -77,8 +84,15 @@
                 <% else %>
                     <p>coup: -<%= @secondUnicornPoison %></p>
                 <% end %>
-                <p>Points de vie: <%= @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %></p>
-            <% end %>
+                <p>Points de vie:
+                  <% @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %>
+                  <% if @secondUnicornLife < 0 %>
+                     <%= @secondUnicornLife = 0 %>
+                  <% else %>
+                    <%= @secondUnicornLife %>
+                  <% end %>
+                </p>
+      <% end %>
         <% end %>
       </td>
     </tr>
