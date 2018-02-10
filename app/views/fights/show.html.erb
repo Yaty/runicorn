@@ -1,14 +1,20 @@
 <center><h1>Combat opposant <%= @fight.firstUnicorn.name %> à <%= @fight.secondUnicorn.name %></h1></center>
 
-<center><table border="1", cellpadding=250", >
+<center><table border="1", cellpadding=150", >
   <tr>
     <td>
-      <center><b><%= @fight.firstUnicorn.name %></b></center><br><br>
-      <h2>Poison: <%= @fight.firstUnicorn.poisons.name %></h2>
+      <center><h1><%= @fight.firstUnicorn.name %> (<%= @fight.firstUnicorn.health %> PDV)</h1></center><br>
+      <center><% @fight.firstUnicorn.poisons.each do |poison| %>
+          <h2>Poison: <%= poison.name %></h2>
+          <h2>Puissance: <%= poison.power %> !</h2>
+        <% end %></center>
     </td>
     <td>
-      <center><b><%= @fight.secondUnicorn.name %></b></center><br><br>
-      <h2>Poison: <%= @fight.secondUnicorn.poisons.name %></h2>
+      <center><h1><%= @fight.secondUnicorn.name %> (<%= @fight.secondUnicorn.health %> PDV)</h1></center><br>
+      <center><% @fight.secondUnicorn.poisons.each do |poison| %>
+          <h2>Poison: <%= poison.name %></h2>
+          <h2>Puissance: <%= poison.power %> !</h2>
+        <% end %></center>
     </td>
   </tr>
 </table></center>
