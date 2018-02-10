@@ -7,4 +7,5 @@ class Unicorn < ApplicationRecord
 
   has_many :aptitudes
   accepts_nested_attributes_for :aptitudes
+  has_many :fights
 end

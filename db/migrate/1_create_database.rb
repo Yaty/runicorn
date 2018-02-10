@@ -29,6 +29,12 @@ class CreateDatabase < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
+    create_table :fights do |t|
+      t.string :name
+      t.belongs_to :firstUnicorn
+      t.belongs_to :secondUnicorn
+    end
+
     create_table :poisons do |t|
       t.string :name
       t.integer :power

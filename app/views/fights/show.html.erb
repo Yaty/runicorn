@@ -1,0 +1,119 @@
+<center><h1>Combat opposant <%= @fight.firstUnicorn.name %> à <%= @fight.secondUnicorn.name %></h1></center>
+
+<center><table border="1", cellpadding=50", >
+  <tr>
+    <td>
+      <center><h2><%= @fight.firstUnicorn.name %> (<%= @firstUnicornLife = @fight.firstUnicorn.health %> HP)</h2></center><br>
+      <center><% @fight.firstUnicorn.poisons.each do |poison| %>
+          <p>Poison: <%= poison.name %></p>
+          <p>Puissance: <%= @firstUnicornPoison = poison.power %> !</p>
+        <% end %></center>
+    </td>
+    <td>
+      <center><h2><%= @fight.secondUnicorn.name %> (<%= @secondUnicornLife = @fight.secondUnicorn.health %> HP)</h2></center><br>
+      <center><% @fight.secondUnicorn.poisons.each do |poison| %>
+          <p>Poison: <%= poison.name %></p>
+          <p>Puissance: <%= @secondUnicornPoison =  poison.power %> !</p>
+        <% end %></center>
+    </td>
+  </tr>
+</table></center>
+<br><br>
+
+<% @player = rand(2) %>
+
+<center><table border="1", cellpadding="10">
+  <tr>
+    <td>
+      <center><h2><%= @fight.firstUnicorn.name %></h2></center>
+    </td>
+    <td>
+      <center><h2><%= @fight.secondUnicorn.name %></h2></center>
+    </td>
+  </tr>
+  <% while @firstUnicornLife >= 1 && @secondUnicornLife >= 1 %>
+    <% @attack = rand(4) %>
+    <% @critical = rand(4) %>
+    <tr>
+      <td>
+        <% if @player == 0 %>
+            <% if @attack == 0 %>
+                <p><%= @fight.firstUnicorn.name %> loupe son attaque :(</p>
+            <% else %>
+              <p><%= @fight.firstUnicorn.name %> reussi son attaque !</p>
+              <% if @critical == 2 %>
+                <p>Coup critique!</p>
+              <% end %>
+            <% end %>
+        <% else %>
+          <% if @attack == 0 %>
+                <p>Aucun dégat!</p>
+          <% else %>
+                <% if @critical == 2 %>
+                    <p>coup: -<%= @firstUnicornPoison + 10%></p>
+                <% else %>
+                    <p>coup: -<%= @firstUnicornPoison %></p>
+                <% end %>
+                <p>Points de vie:
+                  <% @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %>
+                  <% if @firstUnicornLife < 0 %>
+                    <%= @firstUnicornLife = 0 %>
+                  <% else %>
+                    <%= @firstUnicornLife %>
+                  <% end %>
+                </p>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if @player == 1 %>
+            <% if @attack == 0 %>
+                <p><%= @fight.secondUnicorn.name %> loupe son attaque :(</p>
+            <% else %>
+                <p><%= @fight.secondUnicorn.name %> lance son attaque !</p>
+                <% if @critical == 2 %>
+                    <p>Coup critique!</p>
+                <% end %>
+      <% end %>
+      <% else %>
+            <% if @attack == 0 %>
+              <p>Aucun dégat!</p>
+            <% else %>
+                <% if @critical == 2 %>
+                    <p>coup: -<%= @secondUnicornPoison + 10%></p>
+                <% else %>
+                    <p>coup: -<%= @secondUnicornPoison %></p>
+                <% end %>
+                <p>Points de vie:
+                  <% @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %>
+                  <% if @secondUnicornLife < 0 %>
+                     <%= @secondUnicornLife = 0 %>
+                  <% else %>
+                    <%= @secondUnicornLife %>
+                  <% end %>
+                </p>
+      <% end %>
+        <% end %>
+      </td>
+    </tr>
+      <% if @player == 1 %>
+        <% @player = @player - 1 %>
+      <% else %>
+        <% @player = @player + 1 %>
+      <% end %>
+  <% end %>
+</table></center>
+
+<% if @firstUnicornLife > @secondUnicornLife %>
+    <% @winner = @fight.firstUnicorn.name %>
+<% else %>
+    <% @winner = @fight.secondUnicorn.name %>
+<% end %>
+
+<center><h1>Le gagant est : <%= @winner %></h1></center>
+
+<center><p>
+  <%= link_to 'Index', root_url %>
+  <%= link_to 'Retour', :back %>
+  <%= link_to 'Combats', :fights %>
+</p></center>

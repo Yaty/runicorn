@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "style" %>
+
+<%= simple_form_for @fight do |form| %>
+    <%= form.input :name, label: 'Nom du combat', error: 'Champ obligatoire' %>
+    <%= form.association :firstUnicorn, label: 'Licorne 1' %>
+    <%= form.association :secondUnicorn, label: 'Licorne 2' %>
+    <%= form.button :submit %>
+<% end %>
