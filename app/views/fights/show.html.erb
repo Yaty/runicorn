@@ -1,22 +1,61 @@
 <center><h1>Combat opposant <%= @fight.firstUnicorn.name %> à <%= @fight.secondUnicorn.name %></h1></center>
 
-<center><table border="1", cellpadding=150", >
+<center><table border="1", cellpadding=50", >
   <tr>
     <td>
-      <center><h1><%= @fight.firstUnicorn.name %> (<%= @fight.firstUnicorn.health %> PDV)</h1></center><br>
+      <center><h1><%= @fight.firstUnicorn.name %> (<%= @firstUnicornLife = @fight.firstUnicorn.health %> HP)</h1></center><br>
       <center><% @fight.firstUnicorn.poisons.each do |poison| %>
           <h2>Poison: <%= poison.name %></h2>
-          <h2>Puissance: <%= poison.power %> !</h2>
+          <h2>Puissance: <%= @firstUnicornPoison = poison.power %> !</h2>
         <% end %></center>
     </td>
     <td>
-      <center><h1><%= @fight.secondUnicorn.name %> (<%= @fight.secondUnicorn.health %> PDV)</h1></center><br>
+      <center><h1><%= @fight.secondUnicorn.name %> (<%= @secondUnicornLife = @fight.secondUnicorn.health %> HP)</h1></center><br>
       <center><% @fight.secondUnicorn.poisons.each do |poison| %>
           <h2>Poison: <%= poison.name %></h2>
-          <h2>Puissance: <%= poison.power %> !</h2>
+          <h2>Puissance: <%= @secondUnicornPoison =  poison.power %> !</h2>
         <% end %></center>
     </td>
   </tr>
+</table></center>
+<br><br>
+
+<% @player = rand(1) %>
+
+<center><table border="1", cellpadding="10">
+  <tr>
+    <td>
+      <center><h2><%= @fight.firstUnicorn.name %></h2></center>
+    </td>
+    <td>
+      <center><h2><%= @fight.secondUnicorn.name %></h2></center>
+    </td>
+  </tr>
+  <% while @firstUnicornLife >= 1 && @secondUnicornLife >= 1 %>
+    <tr>
+      <td>
+        <% if @player == 0 %>
+          <p><%= @fight.firstUnicorn.name %> lance son attaque !</p>
+        <% else %>
+          <p>coup: -<%= @firstUnicornPoison %></p>
+          <p>Points de vie: <%= @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %></p>
+        <% end %>
+      </td>
+      <td>
+        <% if @player == 1 %>
+            <p><%= @fight.secondUnicorn.name %> lance son attaque !</p>
+        <% else %>
+            <p>coup: -<%= @secondUnicornPoison %></p>
+            <p>Points de vie: <%= @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %></p>
+      <% end %>
+      </td>
+    </tr>
+      <% if @player == 1 %>
+        <% @player = @player - 1 %>
+      <% else %>
+        <% @player = @player + 1 %>
+      <% end %>
+  <% end %>
 </table></center>
 
 <center><p>
