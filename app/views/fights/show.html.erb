@@ -3,17 +3,17 @@
 <center><table border="1", cellpadding=50", >
   <tr>
     <td>
-      <center><h1><%= @fight.firstUnicorn.name %> (<%= @firstUnicornLife = @fight.firstUnicorn.health %> HP)</h1></center><br>
+      <center><h2><%= @fight.firstUnicorn.name %> (<%= @firstUnicornLife = @fight.firstUnicorn.health %> HP)</h2></center><br>
       <center><% @fight.firstUnicorn.poisons.each do |poison| %>
-          <h2>Poison: <%= poison.name %></h2>
-          <h2>Puissance: <%= @firstUnicornPoison = poison.power %> !</h2>
+          <p>Poison: <%= poison.name %></p>
+          <p>Puissance: <%= @firstUnicornPoison = poison.power %> !</p>
         <% end %></center>
     </td>
     <td>
-      <center><h1><%= @fight.secondUnicorn.name %> (<%= @secondUnicornLife = @fight.secondUnicorn.health %> HP)</h1></center><br>
+      <center><h2><%= @fight.secondUnicorn.name %> (<%= @secondUnicornLife = @fight.secondUnicorn.health %> HP)</h2></center><br>
       <center><% @fight.secondUnicorn.poisons.each do |poison| %>
-          <h2>Poison: <%= poison.name %></h2>
-          <h2>Puissance: <%= @secondUnicornPoison =  poison.power %> !</h2>
+          <p>Poison: <%= poison.name %></p>
+          <p>Puissance: <%= @secondUnicornPoison =  poison.power %> !</p>
         <% end %></center>
     </td>
   </tr>
