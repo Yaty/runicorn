@@ -1,39 +1,38 @@
 <h1>Liste des licornes</h1>
 
-<%= link_to 'Ajouter une licorne', new_unicorn_path %> <br />
+<div class="row table col-md-12">
+  <div class="row"> <!-- Table header -->
+    <div class="col-md-1">#</div>
+    <div class="col-md-2">Nom</div>
+    <div class="col-md-1">Age</div>
+    <div class="col-md-1">Genre</div>
+    <div class="col-md-2">Points de vie</div>
+    <div class="col-md-2">Aptitudes</div>
+    <div class="col-md-3">Actions</div>
+  </div>
+  <div class="row"> <!-- Table body -->
+    <% @unicorns.each do |unicorn| %>
+        <div class="col-md-1"><%= unicorn.id %></div>
+        <div class="col-md-2"><%= unicorn.name %></div>
+        <div class="col-md-1"><%= unicorn.age %></div>
+        <div class="col-md-1">
+          <% if unicorn.sex == false %>
+            Mâle
+          <% else %>
+            Femelle
+          <% end %>
+        </div>
+        <div class="col-md-2"><%= unicorn.health %></div>
+        <div class="col-md-2"><%= unicorn.aptitudes.map{|aptitude| aptitude.name }.join(',') %></div>
+        <div class="col-md-1"><%= link_to 'Afficher', unicorn %></div>
+        <div class="col-md-1"><%= link_to 'Editer', edit_unicorn_path(unicorn) %></div>
+        <div class="col-md-1">
+          <%= link_to 'Supprimer', unicorn, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+        </div>
+    <% end %>
+  </div>
+</div>
 
-<table>
-  <thead>
-  <tr>
-    <th>#</th>
-    <th>Nom</th>
-    <th>Age</th>
-    <th>Sexe</th>
-    <th>Points de vie</th>
-    <th>Aptitudes</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @unicorns.each do |unicorn| %>
-      <tr>
-        <td><%= unicorn.id %></td>
-        <td><%= unicorn.name %></td>
-        <td><%= unicorn.age %></td>
-        <td><%= unicorn.sex %></td>
-        <td><%= unicorn.health %></td>
-        <td><%= unicorn.aptitudes.map{|aptitude| aptitude.name }.join(',') %></td>
-        <td>
-          <%= link_to 'Afficher', unicorn %>
-          <%= link_to 'Editer', edit_unicorn_path(unicorn) %>
-          <%= link_to 'Supprimer', unicorn, method: :delete, data: {
-              confirm: 'Etes-vous sûr ?'
-          } %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Index', root_url %>
-<%= link_to 'Retour', :back %>
+<%= link_to 'Ajouter une licorne', new_unicorn_path, :class => "btn btn-primary" %>
+<%= link_to 'Index', root_url, :class => "btn btn-primary" %>
+<%= link_to 'Retour', :back, :class => "btn btn-primary" %>

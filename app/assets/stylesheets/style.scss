@@ -2,7 +2,7 @@
 
 .simple_form div.input {
     margin-bottom: 10px;
-    clear: both; /* Required for Webkit, but not for Gecko */
+    clear: both;
 }
 
 .simple_form label {
@@ -57,8 +57,13 @@ input.check_boxes {
 }
 
 label.collection_check_boxes {
-    float: none;
-    margin: 0;
-    vertical-align: -2px;
-    margin-left: 2px;
+  float: none;
+  margin: 0;
+  vertical-align: -2px;
+  margin-left: 2px;
+}
+
+.table {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
