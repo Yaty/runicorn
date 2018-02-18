@@ -52,3 +52,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_form'
+
+# Bootstrap ralated gems
+# gem 'bootstrap', '~> 4.0.0'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'jquery-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
