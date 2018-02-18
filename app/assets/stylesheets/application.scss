@@ -12,5 +12,11 @@
  *
  */
 
+$brand-primary: #ffb6c1;
+
 @import '_bootstrap.scss';
-@import "style.css";
+@import "style.scss";
+
+.navbar-default {
+  background-color: $brand-primary;
+}
