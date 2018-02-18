@@ -50,12 +50,12 @@
                 <p>Aucun dégat!</p>
           <% else %>
                 <% if @critical == 2 %>
-                    <p>coup: -<%= @firstUnicornPoison + 10%></p>
+                    <p>coup: -<%= @secondUnicornPoison + 10%></p>
                 <% else %>
-                    <p>coup: -<%= @firstUnicornPoison %></p>
+                    <p>coup: -<%= @secondUnicornPoison %></p>
                 <% end %>
                 <p>Points de vie:
-                  <% @firstUnicornLife = @firstUnicornLife - @firstUnicornPoison %>
+                  <% @firstUnicornLife = @firstUnicornLife - @secondUnicornPoison %>
                   <% if @firstUnicornLife < 0 %>
                     <%= @firstUnicornLife = 0 %>
                   <% else %>
@@ -80,12 +80,12 @@
               <p>Aucun dégat!</p>
             <% else %>
                 <% if @critical == 2 %>
-                    <p>coup: -<%= @secondUnicornPoison + 10%></p>
+                    <p>coup: -<%= @firstUnicornPoison + 10%></p>
                 <% else %>
-                    <p>coup: -<%= @secondUnicornPoison %></p>
+                    <p>coup: -<%= @firstUnicornPoison %></p>
                 <% end %>
                 <p>Points de vie:
-                  <% @secondUnicornLife = @secondUnicornLife - @secondUnicornPoison %>
+                  <% @secondUnicornLife = @secondUnicornLife - @firstUnicornPoison %>
                   <% if @secondUnicornLife < 0 %>
                      <%= @secondUnicornLife = 0 %>
                   <% else %>
