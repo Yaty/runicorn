@@ -1,9 +1,16 @@
 <h1>Bienvenue sur runicorn</h1>
 
-<ul>
-  <li><%= link_to 'Licornes', unicorns_url %></li>
-  <li><%= link_to 'Lieux de vies', living_spaces_url %></li>
-  <li><%= link_to 'Poisons', poisons_url %></li>
-  <li><%= link_to 'Clans', clans_url %></li>
-  <li><%= link_to 'Combat', fights_url %></li>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <ul>
+      <li><%= link_to 'Licornes', unicorns_url %></li>
+      <li><%= link_to 'Lieux de vies', living_spaces_url %></li>
+      <li><%= link_to 'Poisons', poisons_url %></li>
+      <li><%= link_to 'Clans', clans_url %></li>
+      <li><%= link_to 'Combat', fights_url %></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <%= image_tag("https://media.giphy.com/media/3ohs4mxZhyaEDXBrkk/giphy.gif") %>
+  </div>
+</div>
