@@ -15,6 +15,7 @@
 $brand-primary: #ffb6c1;
 
 @import '_bootstrap.scss';
+@import 'rails_bootstrap_forms';
 @import "style.scss";
 
 .navbar-default {

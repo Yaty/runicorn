@@ -1,96 +1,107 @@
 <h1>Affichage d'une licorne</h1>
 
-<p>
-  Id : <%= @unicorn.id %>
-</p>
-
-<p>
-  Nom : <%= @unicorn.name %>
-</p>
-
-<p>
-  Age : <%= @unicorn.age %>
-</p>
-
-<p>
-  Sexe : <%= @unicorn.sex ? 'Femelle' : 'Mâle' %>
-</p>
-
-<p>
-  Points de vie : <%= @unicorn.health %>
-</p>
-
-<p>
-  Clan :
-  <% if @unicorn.clan %>
-      <%= link_to @unicorn.clan.name, @unicorn.clan %>
-  <% else %>
-      Aucun
-  <% end %>
-</p>
-
-<p>
-  Lieu de vie : <%= link_to @unicorn.living_space.name, @unicorn.living_space %>
-</p>
-
-<p>
-  Poisons :
-  <% if @unicorn.poisons.count > 0 %>
-    </p>
-
-    <table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
       <thead>
       <tr>
-        <th>#</th>
-        <th>Nom</th>
-        <th>Puissance</th>
+        <th scope="col">Attribut</th>
+        <th scope="col">Valeur</th>
       </tr>
       </thead>
       <tbody>
-        <% @unicorn.poisons.each do |poison| %>
-            <tr>
-              <td><%= poison.id %></td>
-              <td><%= poison.name %></td>
-              <td><%= poison.power %></td>
-            </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  <% else %>
-    Aucun.
-    </p>
-  <% end %>
-
-<p>
-  Aptitudes :
-  <% if @unicorn.aptitudes.count > 0 %>
-    </p>
-
-    <table>
-      <thead>
       <tr>
-        <th>#</th>
-        <th>Type</th>
-        <th>Niveau</th>
+        <th scope="row">Id</th>
+        <td><%= @unicorn.id %></td>
       </tr>
-      </thead>
-      <tbody>
-      <% @unicorn.aptitudes.each do |aptitude| %>
-          <tr>
-            <td><%= aptitude.id %></td>
-            <td><%= aptitude.name %></td>
-            <td><%= aptitude.level %></td>
-          </tr>
-      <% end %>
+      <tr>
+        <th scope="row">Nom</th>
+        <td><%= @unicorn.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">Âge</th>
+        <td><%= @unicorn.age %></td>
+      </tr>
+      <tr>
+        <th scope="row">Genre</th>
+        <td><%= @unicorn.sex ? "Femelle" : "Mâle" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Points de vie</th>
+        <td><%= @unicorn.health %></td>
+      </tr>
+      <tr>
+        <th scope="row">Clan</th>
+        <td>
+          <% if @unicorn.clan %>
+            <%= link_to @unicorn.clan.name, @unicorn.clan %>
+          <% else %>
+            Aucun.
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Lieu de vie</th>
+        <td><%= link_to @unicorn.living_space.name, @unicorn.living_space %></td>
+      </tr>
+      <tr>
+        <th scope="row">Poisons</th>
+        <td>
+          <% if @unicorn.poisons.count > 0 %>
+            <table class="table" style="margin-top: 0px; margin-bottom: 0px;">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Puissance</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @unicorn.poisons.each do |poison| %>
+                <tr>
+                  <td scope="row"><%= poison.id %></td>
+                  <td><%= poison.name %></td>
+                  <td><%= poison.power %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            Aucun.
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Aptitudes</th>
+        <td>
+          <% if @unicorn.aptitudes.count > 0 %>
+            <table class="table" style="margin-top: 0px; margin-bottom: 0px; ">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Niveau</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @unicorn.aptitudes.each do |aptitude| %>
+                <tr>
+                  <td scope="row"><%= aptitude.id %></td>
+                  <td><%= aptitude.name %></td>
+                  <td><%= aptitude.level %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            Aucune.
+          <% end %>
+        </td>
+      </tr>
       </tbody>
     </table>
-  <% else %>
-    Aucune.
-    </p>
-  <% end %>
+  </div>
+</div>
 
-<p>
-  <%= link_to 'Index', root_url %>
-  <%= link_to 'Retour', :back %>
-</p>
+<%= link_to 'Index', root_url, :class => "btn btn-primary" %>
+<%= link_to 'Retour', :back, :class => "btn btn-primary" %>

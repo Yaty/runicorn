@@ -60,3 +60,7 @@ gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
+
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
